@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poem for Uyemhi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    body.poem-page {
+      background: url(https://images.unsplash.com/photo-1708292215628-450310462908?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2hlcnJ5JTIwYmxvc3NvbSUyMHRyZWV8ZW58MHx8MHx8fDA%3D) no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      font-family: 'DM Serif Display', serif;
+      height: auto;
+      min-height: 100vh;
+      overflow-y: auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2em 0;
+      flex-direction: column;
+    }
+
+    .parchment {
+      background-color: rgba(253, 246, 227, 0.5);
+      padding: 3em;
+      max-height: 85vh;
+      max-width: 800px;
+      width: 90%;
+      overflow-y: auto;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4em;
+      color: #3c2f24;
+      line-height: 1.8em;
+      text-align: center;
+      border: 2px solid #d2b48c;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+      z-index: 2;
+      border-radius: 12px;
+      background-image: linear-gradient(135deg, rgba(245, 222, 179, 0.5) 25%, rgba(251, 238, 193, 0.5) 100%);
+      position: relative;
+      backdrop-filter: blur(2px);
+    }
+
+    .audio-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 0.5em 1em;
+      background-color: #e8d8b0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 3;
+    }
+
+    .parchment::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .parchment::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .parchment::-webkit-scrollbar-thumb {
+      background-color: #c0a16b;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ffcad4 0%, #ffc2e2 100%);
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: fall 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="poem-page">
+  <div class="parchment">
+    <p><strong>(For Uyemhi)</strong></p>
+    <!-- POEM CONTENT OMITTED FOR BREVITY -->
+  </div>
+
+  <button class="audio-toggle" onclick="toggleAudio()">🎧</button>
+  <audio id="bg-music" loop>
+    <source src="https://bluemoth.s3.eu-west-2.amazonaws.com/uyemhi_birthday/poem.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const bgMusic = document.getElementById("bg-music");
+    const audioToggleBtn = document.querySelector(".audio-toggle");
+    let isPlaying = false;
+    let userHasInteracted = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        bgMusic.pause();
+        audioToggleBtn.textContent = "🎧";
+      } else {
+        bgMusic.play().then(() => {
+          audioToggleBtn.textContent = "⏸️";
+        }).catch(err => {
+          console.warn("Playback failed:", err);
+        });
+      }
+      isPlaying = !isPlaying;
+    }
+
+    function handleFirstInteraction() {
+      if (!userHasInteracted) {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          audioToggleBtn.textContent = "⏸️";
+        }).catch(err => {
+          console.log("Autoplay prevented, waiting for button:", err);
+        });
+        userHasInteracted = true;
+      }
+    }
+
+    window.addEventListener("click", handleFirstInteraction, { once: true });
+
+    audioToggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleAudio();
+    });
+
+    for (let i = 0; i < 40; i++) {
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDelay = Math.random() * 10 + "s";
+      document.body.appendChild(petal);
+    }
+  </script>
+</body>
+</html>
