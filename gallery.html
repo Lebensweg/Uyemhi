@@ -1,0 +1,185 @@
+<!-- Gallery Page: Parallax Scroll Story -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Lane</title>
+  <style>
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  scroll-snap-align: start;
+  gap: 20px;
+}
+
+section img {
+  max-width: 90%;
+  width: 600px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+}
+
+section p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-top: 10px;
+  padding: 0 15px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  margin: 0;
+  background: url('https://images.unsplash.com/photo-1579201157678-a242a244b34e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+ }
+.audio-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.audio-toggle button {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.audio-toggle button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.next-link {
+  text-align: center;
+  margin: 80px 0 40px;
+}
+
+.next-link a {
+  background: rgba(255, 215, 0, 0.25);
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.next-link a:hover {
+  background: rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  transform: scale(1.03);
+}
+
+  </style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.style.opacity = entry.isIntersecting ? 1 : 0;
+        entry.target.style.transform = entry.isIntersecting ? 'translateY(0)' : 'translateY(20px)';
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(sec => {
+      sec.style.opacity = 0;
+      sec.style.transition = 'all 0.6s ease-out';
+      observer.observe(sec);
+    });
+  });
+</script>
+</head>
+<body>
+
+  <div class="aurora"></div>
+
+  <div class="audio-toggle">
+    <button onclick="toggleAudio()">🔊 Toggle Music</button>
+    <audio id="bg-music" src="gallerymusic.mp3" loop></audio>
+  </div>
+
+<section>
+  <img src="1.jpg" alt="Photo 1">
+  <p>The Genesis of it all🙃</p>
+</section>
+
+<section>
+  <img src="2.jpg" alt="Photo 2">
+  <p>Just look at that pose😅</p>
+</section>
+
+<section>
+  <img src="3.jpg" alt="Photo 3">
+  <p>Been a cutie since day #1</p>
+</section>
+
+<section>
+  <img src="4.jpg" alt="Photo 4">
+  <p>Yes, I kept this one too</p>
+</section>
+
+<section>
+  <img src="5.jpg" alt="Photo 5">
+  <p>Billion dollar smile😁</p>
+</section>
+
+<section>
+  <img src="6.jpg" alt="Photo 6">
+  <p>(エレガント) The Japanese said it best</p>
+</section>
+
+<section>
+  <img src="7.jpg" alt="Photo 7">
+  <p>I kept this since 14th August 2023. Worth it🙃</p>
+</section>
+
+  <div class="next-link">
+    <a href="wishbox.html">🌠 Leave a Wish</a>
+  </div>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    function toggleAudio() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Letter to Uyemhi</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: url(https://plus.unsplash.com/premium_photo-1710849581742-f2151607c745?q=80&w=1430&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Georgia', serif;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .letter-container {
+        max-width: 800px;
+        margin: 5vh auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        animation: fadeIn 2s ease-out;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 1em;
+        color: #ffd700;
+      }
+
+      p {
+        line-height: 1.8;
+        font-size: 1.1em;
+        margin-bottom: 1.2em;
+      }
+
+      .music-button {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .music-button:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      .music-button::before {
+        content: '🎵';
+        font-size: 1.5em;
+      }
+
+      .next-button {
+       position: absolute;
+       bottom: -885px;
+       right: 620px;
+       background-color: #e5c685;
+       color: #3e2e14;
+       border: none;
+       border-radius: 10px;
+       padding: 0.8em 1.6em;
+       font-size: 1em;
+       font-family: 'Poppins', sans-serif;
+       cursor: pointer;
+       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+       transition: background-color 0.3s ease;
+       z-index: 2;
+      }
+
+      .next-button:hover {
+       background-color: #f2d694;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="music-button" onclick="toggleMusic()"></button>
+    <audio id="bg-music" loop>
+      <source src="letter.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="letter-container">
+      <h1>To Uyemhi</h1>
+      <p>Hi Uye,</p>
+      <p>
+        Before I write anything, I want to apologize for taking this long to send you this very average birthday gift. I should have had it ready about a week ago but illness really throws a spanner into your plans. Worry not, I am much better now. Before you continue reading the letter, tap on the music button on the page, there’s one of your all-time favorites for you to enjoy. Now that it’s done, I shall write the letter. The time is 7:44 AM on 12th June. Yes, I couldn’t write it earlier like I planned.
+      </p>
+      <p>
+        First of all, welcome to Chapter 22. You’ve had quite the run to get here. Tears, sleepless nights, days of uncertainty, and a couple of smiles too. You say sometimes that you are not strong enough to go through all you do but your record tells a different story. You are relentless, even though it doesn’t seem such to you. You’re one of the strongest people I have had the opportunity to meet. I don’t see you as a weak person but rather a strong person who doesn’t even recognize the depth of their own strength.
+      </p>
+      <p>
+        I don’t know if I’m allowed to but I am incredibly proud of you. You’ve not had it the least easy, yet you still manage to smile every now and then. That gives me a confidence that your days of continuous laughter are not too far away. It’s been nearly three years since our paths have crossed and every passing second, I feel a gratitude to have met you. You trust me with some of the most delicate things and I take that seriously like how a Rocket scientist takes his final check before liftoff.
+      </p>
+      <p>
+        I’ve not said it often but I love you so much. I am just incredibly thankful your paths crossed mine. I see your family as mine, and that’s something that’s never happened. You have the most amazing siblings and I know in my bones that they are proud of you as well. You might wonder sometimes if you’re doing enough, whether you are cut out for whatever is on your plate at the particular time. I want to tell you today, “You are more than enough Em”. You’re doing great and that’s not because of the results but because you never stop. That’s how the greatest people became who we know them to be. They never quit. One day, when you’re there, at exactly the place you daydreamed of reaching, at the heights of everything you ever desired, remember this lad told you this “I knew you will get there”. No light stays under a cover for too long. And your rapid rise is just around the corner.
+      </p>
+      <p>
+        As your chapter 22 begins, I pray for one thing, the most important thing, may all the nights that you usually cry yourself to sleep turn to be nights you’ll go to bed with laughter in. May your peace of mind be abundant, may your fly to heights you never fathomed and all your wishes be granted. It gets harder (c’est la vie) but I assure you, as long as I am able, I am going to continue to be in your corner, cheering you on and helping you in any way that I can. You’re going to make waves, and turn your sad stories into motivation, teeming with joy. May your days be filled with laughter and prosperity in all your ways. You mean a lot to a lot of people, never forget that. All I ask is you never stop, no matter how you feel it will be better that way. Don’t stop. That doesn’t mean you can’t pause though, make sure to pause every now and then, take inventory, gather new energy, and then keep going. It’ll all be worth it soon.
+      </p>
+      <p>
+        You are loved Em, more than you can ever think. And I wish you the best that’s possible. To your Chapter 22, may it be the dandiest and the grandest the world has ever witnessed. Salut
+      </p>
+    </div>
+
+  <a href="poem.html"><button class="next-button">Next</button></a>
+
+    <script>
+      const music = document.getElementById('bg-music');
+      function toggleMusic() {
+        if (music.paused) {
+          music.play();
+        } else {
+          music.pause();
+        }
+      }
+    </script>
+  </body>
+</html>
